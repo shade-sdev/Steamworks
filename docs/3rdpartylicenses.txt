@@ -10,6 +10,8 @@ MIT
 @angular/router
 MIT
 
+ng-heroicon
+
 rxjs
 Apache-2.0
                                Apache License
