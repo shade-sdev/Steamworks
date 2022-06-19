@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { IconsModule } from './heroicon/icon/icon.module';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarService } from '../core/services/sidebar.service';
+import { RouterModule } from '@angular/router';
 
 const reusables = [HeaderComponent, SidebarComponent]
 
@@ -12,8 +14,10 @@ const reusables = [HeaderComponent, SidebarComponent]
   ],
   imports: [
     CommonModule,
-    IconsModule
+    IconsModule,
+    RouterModule
   ],
-  exports: [reusables]
+  exports: [reusables],
+  providers: [SidebarService]
 })
 export class SharedModule { }

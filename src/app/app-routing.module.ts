@@ -6,7 +6,7 @@ const routes: Routes = [{ path: 'admin', loadChildren: () => import('./features/
   path: '',
   redirectTo: 'admin',
   pathMatch: 'full'
-},];
+}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -4,11 +4,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
+import { CreateGameComponent } from './create-game/create-game.component';
+import { ViewGameComponent } from './view-game/view-game.component';
 
 
 @NgModule({
   declarations: [
-    AdminComponent
+    AdminComponent,
+    CreateGameComponent,
+    ViewGameComponent
   ],
   imports: [
     CommonModule,
