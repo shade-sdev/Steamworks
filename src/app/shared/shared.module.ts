@@ -5,8 +5,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarService } from '../core/services/sidebar.service';
 import { RouterModule } from '@angular/router';
+import { TableComponent } from './components/table/table.component';
 
-const reusables = [HeaderComponent, SidebarComponent]
+const reusables = [HeaderComponent, SidebarComponent, TableComponent]
 
 @NgModule({
   declarations: [

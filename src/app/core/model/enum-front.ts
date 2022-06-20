@@ -20,3 +20,8 @@ export enum LinkType {
     GAME = 'Game',
     STORE_PAGE = 'Store Page'
 }
+
+export interface TableHeader {
+    key: string,
+    displayLabel: string
+}

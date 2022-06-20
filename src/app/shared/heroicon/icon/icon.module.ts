@@ -22,7 +22,8 @@ import {
   userGroup,
   menuAlt1,
   identification,
-  HeroIconModule
+  HeroIconModule,
+  eye
 } from 'ng-heroicon';
 
 const selectedHeroIcons = {
@@ -46,7 +47,8 @@ const selectedHeroIcons = {
   arrowsExpand,
   userGroup,
   menuAlt1,
-  identification
+  identification,
+  eye
 };
 
 @NgModule({

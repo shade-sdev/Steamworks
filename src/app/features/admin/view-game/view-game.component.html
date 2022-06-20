@@ -1,7 +1,9 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
     <h1 class="text-2xl font-semibold text-gray-900">View Games</h1>
 </div>
-<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mt-6">
 
+    <app-table [tableHeaders]="gameHeader" [tableBody]="games" [tableOptions]="tableOptions" addButtonLabel="Add Game">
+    </app-table>
 
 </div>

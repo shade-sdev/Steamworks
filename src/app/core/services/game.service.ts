@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Game } from '../model/model-back';
+import { GameResponse, Page } from '../model/model-front';
 
 @Injectable()
 export class GameService {
@@ -13,6 +15,10 @@ export class GameService {
 
   public createGame(game: Game): Observable<Game> {
     return this.httpClient.post<Game>(`${this.baseUrl}`, game);
+  }
+
+  public getGamesBypage(param: Params): Observable<Page<Game[]>> {
+    return this.httpClient.get<Page<Game[]>>(`${this.baseUrl}`, { params: param });
   }
 
 }
