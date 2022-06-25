@@ -6,6 +6,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { GameService } from 'src/app/core/services/game.service';
 import { LinkService } from 'src/app/core/services/link.service';
 import { SteamService } from 'src/app/core/services/steam.service';
+import { TokenService } from 'src/app/core/services/token.service';
 import { IconsModule } from 'src/app/shared/heroicon/icon/icon.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
@@ -30,6 +31,6 @@ import { ViewGameComponent } from './view-game/view-game.component';
     HttpClientModule,
     IconsModule
   ],
-  providers: [GameService, SteamService, LinkService]
+  providers: [GameService, SteamService, LinkService, TokenService]
 })
 export class AdminModule { }

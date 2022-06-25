@@ -13,7 +13,7 @@ const routes: Routes = [
       { path: 'update-game/:id', component: ViewGameComponent },
       {
         path: '',
-        redirectTo: 'view-game',
+        redirectTo: 'create-game',
         pathMatch: 'full'
       }
     ]

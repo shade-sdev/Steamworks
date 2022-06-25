@@ -12,3 +12,7 @@ export interface Steam {
     appid: number;
     name: string;
 }
+
+export interface AccessToken {
+    accessToken: string;
+}
