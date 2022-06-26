@@ -41,6 +41,12 @@ SOFTWARE.
 @ng-select/ng-select
 MIT
 
+@ngneat/hot-toast
+MIT
+
+@ngneat/overview
+MIT
+
 ng-heroicon
 
 rxjs
