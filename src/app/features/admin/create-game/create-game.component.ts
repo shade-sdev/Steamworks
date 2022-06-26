@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { HotToastService } from '@ngneat/hot-toast';
 import { Genre } from 'src/app/core/model/enum-front';
 import { Game, Steam } from 'src/app/core/model/model-back';
 import { GameService } from 'src/app/core/services/game.service';
@@ -16,7 +17,7 @@ export class CreateGameComponent implements OnInit {
   public gameForm: FormGroup;
   public steamGames: Steam[] = [];
 
-  constructor(private formBuilder: FormBuilder, private steamService: SteamService, private gameService: GameService) {
+  constructor(private formBuilder: FormBuilder, private steamService: SteamService, private gameService: GameService, private toast: HotToastService) {
     this.gameForm = this.formBuilder.group({
       game: [''],
       genre: ['ACTION']
@@ -38,7 +39,16 @@ export class CreateGameComponent implements OnInit {
     game.name = this.steamGames.find(x => x.appid == this.gameForm.controls['game'].value)!.name;
     game.steamId = this.gameForm.controls['game'].value;
     game.genre = this.gameForm.controls['genre'].value;
-    this.gameService.createGame(game).subscribe();
+    this.gameService.createGame(game).pipe(
+      this.toast.observe(
+        {
+          loading: 'Saving...',
+          success: 'Saved',
+          error: 'Saving failed',
+
+        })
+    )
+      .subscribe();
 
   }
 
@@ -47,7 +57,15 @@ export class CreateGameComponent implements OnInit {
       search: searchPhrase['searchTerm']
     };
     if (event.key == 'Enter') {
-      this.steamService.searchSteam(params).subscribe((steamGames: Steam[]) => {
+      this.steamService.searchSteam(params).pipe(
+        this.toast.observe(
+          {
+            loading: 'Search...',
+            success: 'Searched',
+            error: 'Searching failed',
+
+          })
+      ).subscribe((steamGames: Steam[]) => {
         this.steamGames = steamGames;
       })
     }

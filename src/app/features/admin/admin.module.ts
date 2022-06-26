@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { HotToastModule } from '@ngneat/hot-toast';
 import { authInterceptorProviders } from 'src/app/core/interceptors/auth.interceptor';
 import { GameService } from 'src/app/core/services/game.service';
 import { LinkService } from 'src/app/core/services/link.service';
@@ -30,7 +31,8 @@ import { ViewGameComponent } from './view-game/view-game.component';
     ReactiveFormsModule,
     NgSelectModule,
     HttpClientModule,
-    IconsModule
+    IconsModule,
+    HotToastModule.forRoot()
   ],
   providers: [GameService, SteamService, LinkService, TokenService, authInterceptorProviders]
 })

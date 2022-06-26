@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { HotToastModule } from '@ngneat/hot-toast';
 import { HeroIconModule } from 'ng-heroicon';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +24,8 @@ import { FeaturesModule } from './features/features.module';
       defaultHostDisplay: 'inlineBlock',
       attachDefaultDimensionsIfNoneFound: true
     }),
-    HttpClientModule
+    HttpClientModule,
+    HotToastModule.forRoot()
   ],
   providers: [TokenService, AuthenticationService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService, authInterceptorProviders],
   bootstrap: [AppComponent]

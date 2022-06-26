@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HotToastService } from '@ngneat/hot-toast';
 import { HeroIconName } from 'ng-heroicon';
 import { Genre } from 'src/app/core/model/enum-front';
 import { Game } from 'src/app/core/model/model-back';
@@ -24,7 +25,7 @@ export class ViewGameComponent implements OnInit {
     delete: true
   }
 
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService, private toast: HotToastService) { }
 
   ngOnInit(): void {
     this.setHeader();
@@ -53,9 +54,19 @@ export class ViewGameComponent implements OnInit {
       page: page
     };
 
-    this.gameService.getGamesBypage(params).subscribe((games: Page<Game[]>) => {
-      this.setTableBody(games);
-    });
+    this.gameService.getGamesBypage(params).pipe(
+      this.toast.observe(
+        {
+          loading: 'Loading games...',
+          success: 'Games loaded',
+          error: 'Loading games failed',
+
+        }
+      )
+    )
+      .subscribe((games: Page<Game[]>) => {
+        this.setTableBody(games);
+      });
   }
 
   private setTableBody(games: Page<Game[]>) {

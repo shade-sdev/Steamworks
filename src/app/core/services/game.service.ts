@@ -4,7 +4,7 @@ import { Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Game } from '../model/model-back';
-import { GameResponse, Page } from '../model/model-front';
+import { GameFull, GameResponse, Page } from '../model/model-front';
 
 @Injectable()
 export class GameService {
@@ -19,6 +19,10 @@ export class GameService {
 
   public getGamesBypage(param: Params): Observable<Page<Game[]>> {
     return this.httpClient.get<Page<Game[]>>(`${this.baseUrl}`, { params: param });
+  }
+
+  public getGamesFullBypage(param: Params): Observable<Page<GameFull[]>> {
+    return this.httpClient.get<Page<GameFull[]>>(`${this.baseUrl}`, { params: param });
   }
 
 }
