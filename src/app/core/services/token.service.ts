@@ -32,8 +32,8 @@ export class TokenService {
     window.sessionStorage.setItem(USER_ROLE_KEY, JSON.stringify(role));
   }
 
-  getUserRole(): object {
-    return JSON.parse(window.sessionStorage.getItem(USER_ROLE_KEY)!);
+  getUserRole(): string[] {
+    return Object.values(JSON.parse(window.sessionStorage.getItem(USER_ROLE_KEY)!));
   }
 
 

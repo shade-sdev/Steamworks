@@ -23,3 +23,8 @@ export interface GameResponse {
 export interface Icon {
     icon: HeroIconName
 }
+
+export interface TableHeader {
+    key: string,
+    displayLabel: string
+}

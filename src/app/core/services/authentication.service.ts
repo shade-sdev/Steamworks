@@ -4,6 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { UserRole } from '../model/enum-front';
 import { AccessToken } from '../model/model-back';
 import { TokenService } from './token.service';
 
@@ -29,7 +30,7 @@ export class AuthenticationService {
             window.location.href = environment.discordTokenUrl
           },
           complete: () => {
-            this.router.navigate(['admin'])
+            this.roleBasedNavigator(tokenService.getUserRole())
           }
         })
       } else {
@@ -48,5 +49,13 @@ export class AuthenticationService {
     const userName: string = this.jwtService.decodeToken(token)['sub'];
     tokenService.saveUserRole(userRoles);
     tokenService.saveUserName(userName);
+  }
+
+  private roleBasedNavigator(roles: string[]) {
+    if (roles.length == 1 && roles.includes(UserRole.USER)) {
+      this.router.navigate(['game'])
+    } else {
+      this.router.navigate(['admin'])
+    }
   }
 }

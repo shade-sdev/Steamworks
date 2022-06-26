@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HeroIconName } from 'ng-heroicon';
-import { TableHeader } from 'src/app/core/model/enum-front';
+import { TableHeader } from 'src/app/core/model/model-front';
 
 @Component({
   selector: 'app-table',

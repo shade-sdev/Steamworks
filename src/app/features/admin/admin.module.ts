@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { authInterceptorProviders } from 'src/app/core/interceptors/auth.interceptor';
 import { GameService } from 'src/app/core/services/game.service';
 import { LinkService } from 'src/app/core/services/link.service';
 import { SteamService } from 'src/app/core/services/steam.service';
@@ -31,6 +32,6 @@ import { ViewGameComponent } from './view-game/view-game.component';
     HttpClientModule,
     IconsModule
   ],
-  providers: [GameService, SteamService, LinkService, TokenService]
+  providers: [GameService, SteamService, LinkService, TokenService, authInterceptorProviders]
 })
 export class AdminModule { }

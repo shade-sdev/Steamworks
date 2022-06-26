@@ -21,7 +21,9 @@ export enum LinkType {
     STORE_PAGE = 'Store Page'
 }
 
-export interface TableHeader {
-    key: string,
-    displayLabel: string
+
+
+export enum UserRole {
+    ADMIN = 'ADMIN',
+    USER = 'USER'
 }

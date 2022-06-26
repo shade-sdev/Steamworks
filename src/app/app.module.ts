@@ -6,6 +6,7 @@ import { HeroIconModule } from 'ng-heroicon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { authInterceptorProviders } from './core/interceptors/auth.interceptor';
 import { AuthenticationService } from './core/services/authentication.service';
 import { TokenService } from './core/services/token.service';
 import { FeaturesModule } from './features/features.module';
@@ -24,7 +25,7 @@ import { FeaturesModule } from './features/features.module';
     }),
     HttpClientModule
   ],
-  providers: [TokenService, AuthenticationService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService],
+  providers: [TokenService, AuthenticationService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

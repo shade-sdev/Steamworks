@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { eye, HeroIconName } from 'ng-heroicon';
-import { Genre, TableHeader } from 'src/app/core/model/enum-front';
+import { HeroIconName } from 'ng-heroicon';
+import { Genre } from 'src/app/core/model/enum-front';
 import { Game } from 'src/app/core/model/model-back';
-import { GameResponse, Page } from 'src/app/core/model/model-front';
+import { GameResponse, Page, TableHeader } from 'src/app/core/model/model-front';
 import { GameService } from 'src/app/core/services/game.service';
 
 @Component({
