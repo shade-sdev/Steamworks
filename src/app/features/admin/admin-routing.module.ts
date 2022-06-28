@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       { path: 'view-game', component: ViewGameComponent },
       { path: 'create-game', component: CreateGameComponent },
-      { path: 'update-game/:id', component: ViewGameComponent },
+      { path: 'update-game/:id', component: CreateGameComponent },
       {
         path: '',
         redirectTo: 'create-game',

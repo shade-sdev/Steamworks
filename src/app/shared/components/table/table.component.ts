@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HeroIconName } from 'ng-heroicon';
 import { TableHeader } from 'src/app/core/model/model-front';
-
+import { v4 as uuid } from 'uuid';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -19,13 +19,18 @@ export class TableComponent {
   @Input() tableOptions = { misc: { icon: this.icon, view: false }, edit: true, delete: true }
   @Input() addButtonLabel!: String;
   @Output() updateAction: EventEmitter<any> = new EventEmitter<any>();
+  @Output() deleteAction: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
     console.log(this.tableHeaders)
   }
 
-  public emitUpdateAction(id: number) {
+  public emitUpdateAction(id: typeof uuid) {
     this.updateAction.emit(id);
+  }
+
+  public emitDeleteAction(id: typeof uuid) {
+    this.deleteAction.emit(id);
   }
 
 }

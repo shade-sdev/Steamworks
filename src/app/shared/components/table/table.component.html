@@ -38,6 +38,7 @@
                                         <hero-icon name="pencil" class="w-4 h-4 text-white pt-1"></hero-icon>
                                     </button>
                                     <button class="bg-indigo-600 px-2 py-1 ml-2 rounded-md"
+                                        (click)="emitDeleteAction(tb.id)"
                                         [ngClass]="{'hidden': tableOptions.delete == false}">
                                         <hero-icon name="trash" class="w-4 h-4 text-white pt-1"></hero-icon>
                                     </button>

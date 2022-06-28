@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HotToastService } from '@ngneat/hot-toast';
+import { LinkType } from 'src/app/core/model/enum-front';
 import { GameFull, Page } from 'src/app/core/model/model-front';
 import { GameService } from 'src/app/core/services/game.service';
 
@@ -14,6 +15,14 @@ export class GameComponent implements OnInit {
 
   public currentPage: number = 0;
   public games: GameFull[] = [];
+
+  public get linkType(): typeof LinkType {
+    return LinkType;
+  }
+
+  public getKey(value: LinkType) {
+    return Object.keys(LinkType)[Object.values(LinkType).indexOf(value)]
+  }
 
   ngOnInit(): void {
     this.getGamesByPage(this.currentPage);

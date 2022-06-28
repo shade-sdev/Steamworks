@@ -3,7 +3,8 @@
 </div>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mt-6">
 
-    <app-table [tableHeaders]="gameHeader" [tableBody]="games" [tableOptions]="tableOptions" addButtonLabel="Add Game">
+    <app-table [tableHeaders]="gameHeader" [tableBody]="games" [tableOptions]="tableOptions"
+        (updateAction)="update($event)" (deleteAction)="delete($event)" addButtonLabel="Add Game">
     </app-table>
 
 </div>

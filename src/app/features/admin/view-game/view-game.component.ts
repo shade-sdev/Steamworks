@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { HeroIconName } from 'ng-heroicon';
 import { Genre } from 'src/app/core/model/enum-front';
 import { Game } from 'src/app/core/model/model-back';
 import { GameResponse, Page, TableHeader } from 'src/app/core/model/model-front';
 import { GameService } from 'src/app/core/services/game.service';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-view-game',
@@ -25,7 +27,7 @@ export class ViewGameComponent implements OnInit {
     delete: true
   }
 
-  constructor(private gameService: GameService, private toast: HotToastService) { }
+  constructor(private gameService: GameService, private toast: HotToastService, private router: Router) { }
 
   ngOnInit(): void {
     this.setHeader();
@@ -79,6 +81,31 @@ export class ViewGameComponent implements OnInit {
       gameItem.steamId = game.steamId;
       return gameItem;
     })
+  }
+
+  public update(id: typeof uuid) {
+    this.router.navigate([`admin/update-game/${id}`])
+  }
+
+  public delete(id: typeof uuid) {
+    this.gameService.deleteGameById(id).pipe(
+      this.toast.observe(
+        {
+          loading: 'Deleting game...',
+          success: 'Game deletd',
+          error: 'Deleting game failed',
+
+        }
+      )
+    ).subscribe({
+      complete: () => {
+        this.games = this.games.filter(game => {
+          return game.id !== id;
+        });
+      }
+    }
+
+    )
   }
 
 }

@@ -24,7 +24,8 @@ import {
   identification,
   HeroIconModule,
   eye,
-  logout
+  logout,
+  arrowCircleDown
 } from 'ng-heroicon';
 
 const selectedHeroIcons = {
@@ -50,7 +51,8 @@ const selectedHeroIcons = {
   menuAlt1,
   identification,
   eye,
-  logout
+  logout,
+  arrowCircleDown
 };
 
 @NgModule({
