@@ -6,6 +6,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarService } from '../core/services/sidebar.service';
 import { RouterModule } from '@angular/router';
 import { TableComponent } from './components/table/table.component';
+import { TokenService } from '../core/services/token.service';
 
 const reusables = [HeaderComponent, SidebarComponent, TableComponent]
 
@@ -19,6 +20,6 @@ const reusables = [HeaderComponent, SidebarComponent, TableComponent]
     RouterModule
   ],
   exports: [reusables],
-  providers: [SidebarService]
+  providers: [SidebarService, TokenService]
 })
 export class SharedModule { }

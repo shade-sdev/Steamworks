@@ -17,7 +17,7 @@ export class ViewGameComponent implements OnInit {
 
   public gameHeader!: TableHeader[];
   public games: GameResponse[] = [];
-  public icon: HeroIconName = 'eye'
+  public icon: HeroIconName = 'link'
   public tableOptions = {
     misc: {
       icon: this.icon,
@@ -103,9 +103,11 @@ export class ViewGameComponent implements OnInit {
           return game.id !== id;
         });
       }
-    }
+    })
+  }
 
-    )
+  public addGame() {
+    this.router.navigate(['admin/create-game'])
   }
 
 }

@@ -3,6 +3,8 @@ import { HotToastService } from '@ngneat/hot-toast';
 import { LinkType } from 'src/app/core/model/enum-front';
 import { GameFull, Page } from 'src/app/core/model/model-front';
 import { GameService } from 'src/app/core/services/game.service';
+import { TokenService } from 'src/app/core/services/token.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-game',
@@ -11,10 +13,12 @@ import { GameService } from 'src/app/core/services/game.service';
 })
 export class GameComponent implements OnInit {
 
-  constructor(private gameService: GameService, private toast: HotToastService) { }
+  constructor(private gameService: GameService, private toast: HotToastService, public tokenService: TokenService) { }
 
   public currentPage: number = 0;
   public games: GameFull[] = [];
+  public roles: string[] = this.tokenService.getUserRole();
+  public showProfileMenu: boolean = false;
 
   public get linkType(): typeof LinkType {
     return LinkType;
@@ -49,6 +53,15 @@ export class GameComponent implements OnInit {
           this.games.push(game);
         })
       });
+  }
+
+  public logout() {
+    this.tokenService.signOut();
+    window.location.href = environment.discordTokenUrl;
+  }
+
+  public showProfileOptions() {
+    this.showProfileMenu = this.showProfileMenu == true ? false : true;
   }
 
 }

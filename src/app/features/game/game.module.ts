@@ -6,6 +6,7 @@ import { GameComponent } from './game.component';
 import { IconsModule } from 'src/app/shared/heroicon/icon/icon.module';
 import { GameService } from 'src/app/core/services/game.service';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { TokenService } from 'src/app/core/services/token.service';
 
 
 @NgModule({
@@ -18,6 +19,6 @@ import { HotToastModule } from '@ngneat/hot-toast';
     IconsModule,
     HotToastModule.forRoot()
   ],
-  providers: [GameService]
+  providers: [GameService, TokenService]
 })
 export class GameModule { }

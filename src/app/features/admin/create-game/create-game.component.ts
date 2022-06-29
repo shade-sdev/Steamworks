@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Genre } from 'src/app/core/model/enum-front';
 import { Game, Steam } from 'src/app/core/model/model-back';
@@ -22,7 +22,7 @@ export class CreateGameComponent implements OnInit {
   public buttonLabel: string | undefined;
   public gameId?: typeof uuid;
 
-  constructor(private formBuilder: FormBuilder, private steamService: SteamService, private gameService: GameService, private toast: HotToastService, private route: ActivatedRoute,) {
+  constructor(private formBuilder: FormBuilder, private steamService: SteamService, private gameService: GameService, private toast: HotToastService, private route: ActivatedRoute, private router: Router) {
     this.gameForm = this.formBuilder.group({
       game: [''],
       genre: ['ACTION']
@@ -121,5 +121,9 @@ export class CreateGameComponent implements OnInit {
         })
       }
     });
+  }
+
+  public viewGames() {
+    this.router.navigate(['admin/view-game'])
   }
 }

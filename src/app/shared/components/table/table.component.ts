@@ -20,6 +20,7 @@ export class TableComponent {
   @Input() addButtonLabel!: String;
   @Output() updateAction: EventEmitter<any> = new EventEmitter<any>();
   @Output() deleteAction: EventEmitter<any> = new EventEmitter<any>();
+  @Output() addAction: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
     console.log(this.tableHeaders)
@@ -31,6 +32,10 @@ export class TableComponent {
 
   public emitDeleteAction(id: typeof uuid) {
     this.deleteAction.emit(id);
+  }
+
+  public emitAddAction() {
+    this.addAction.emit();
   }
 
 }

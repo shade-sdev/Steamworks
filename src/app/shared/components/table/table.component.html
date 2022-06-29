@@ -2,7 +2,8 @@
     <div class="flex flex-row justify-end">
         <div class="">
             <button type="button"
-                class="rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">{{addButtonLabel}}</button>
+                class="rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
+                (click)="emitAddAction()">{{addButtonLabel}}</button>
         </div>
     </div>
     <div class="mt-8 flex flex-col">
@@ -30,7 +31,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <button class="bg-indigo-600 px-2 mr-2 py-1 rounded-md"
                                         [ngClass]="{'hidden': tableOptions.misc.view == false}">
-                                        <hero-icon name="eye" class="w-4 h-4 text-white pt-1">
+                                        <hero-icon [name]="tableOptions.misc.icon" class="w-4 h-4 text-white pt-1">
                                         </hero-icon>
                                     </button>
                                     <button class="bg-indigo-600 px-2 py-1 rounded-md" (click)="emitUpdateAction(tb.id)"

@@ -58,8 +58,10 @@ export class AuthenticationService {
     const token: string = tokenService.getToken()!;
     const userRoles: string[] = this.jwtService.decodeToken(token)['roles'];
     const userName: string = this.jwtService.decodeToken(token)['sub'];
+    const avatar: string = this.jwtService.decodeToken(token)['avatar'];
     tokenService.saveUserRole(userRoles);
     tokenService.saveUserName(userName);
+    tokenService.saveAvatar(avatar);
   }
 
   private roleBasedNavigator(roles: string[]) {

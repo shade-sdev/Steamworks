@@ -13,12 +13,6 @@ export class SidebarService {
         label: 'View Games',
         url: '/admin/view-game',
         roles: ['ADMIN', 'USER']
-      },
-      {
-        icon: 'plus',
-        label: 'Create Game',
-        url: '/admin/create-game',
-        roles: ['ADMIN', 'USER']
       }
     ]
   }
