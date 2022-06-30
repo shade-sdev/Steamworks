@@ -5,7 +5,7 @@
 
     <app-table [tableHeaders]="gameHeader" [tableBody]="games" [tableOptions]="tableOptions"
         (updateAction)="update($event)" (deleteAction)="delete($event)" addButtonLabel="Add Game"
-        (addAction)="addGame()">
+        (addAction)="addGame()" (miscAction)="viewLink($event)">
     </app-table>
 
 </div>

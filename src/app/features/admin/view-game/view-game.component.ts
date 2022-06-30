@@ -84,7 +84,7 @@ export class ViewGameComponent implements OnInit {
   }
 
   public update(id: typeof uuid) {
-    this.router.navigate([`admin/update-game/${id}`])
+    this.router.navigate([`admin/update-game/${id}`]);
   }
 
   public delete(id: typeof uuid) {
@@ -108,6 +108,10 @@ export class ViewGameComponent implements OnInit {
 
   public addGame() {
     this.router.navigate(['admin/create-game'])
+  }
+
+  public viewLink(id: typeof uuid) {
+    this.router.navigate([`admin/view-link/${id}`]);
   }
 
 }

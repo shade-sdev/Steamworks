@@ -16,13 +16,15 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { CreateGameComponent } from './create-game/create-game.component';
 import { ViewGameComponent } from './view-game/view-game.component';
+import { ViewLinkComponent } from './view-link/view-link.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
     CreateGameComponent,
-    ViewGameComponent
+    ViewGameComponent,
+    ViewLinkComponent
   ],
   imports: [
     CommonModule,

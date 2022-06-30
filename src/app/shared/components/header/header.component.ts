@@ -9,22 +9,10 @@ import { environment } from 'src/environments/environment';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public tokenService: TokenService) { }
+  constructor() { }
 
-  public showProfileMenu: boolean = false;
-
-  public roles: string[] = this.tokenService.getUserRole();
 
   ngOnInit(): void {
-  }
-
-  public showProfileOptions() {
-    this.showProfileMenu = this.showProfileMenu == true ? false : true;
-  }
-
-  public logout() {
-    this.tokenService.signOut();
-    window.location.href = environment.discordTokenUrl;
   }
 
 }

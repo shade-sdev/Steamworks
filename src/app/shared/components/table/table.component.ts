@@ -21,9 +21,9 @@ export class TableComponent {
   @Output() updateAction: EventEmitter<any> = new EventEmitter<any>();
   @Output() deleteAction: EventEmitter<any> = new EventEmitter<any>();
   @Output() addAction: EventEmitter<any> = new EventEmitter<any>();
+  @Output() miscAction: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
-    console.log(this.tableHeaders)
   }
 
   public emitUpdateAction(id: typeof uuid) {
@@ -36,6 +36,10 @@ export class TableComponent {
 
   public emitAddAction() {
     this.addAction.emit();
+  }
+
+  public emitMiscAction(id: typeof uuid) {
+    this.miscAction.emit(id);
   }
 
 }

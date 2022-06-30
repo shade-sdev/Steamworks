@@ -7,6 +7,7 @@ import { IconsModule } from 'src/app/shared/heroicon/icon/icon.module';
 import { GameService } from 'src/app/core/services/game.service';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { TokenService } from 'src/app/core/services/token.service';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { TokenService } from 'src/app/core/services/token.service';
     CommonModule,
     GameRoutingModule,
     IconsModule,
-    HotToastModule.forRoot()
+    HotToastModule.forRoot(),
+    SharedModule
   ],
   providers: [GameService, TokenService]
 })

@@ -7,8 +7,9 @@ import { SidebarService } from '../core/services/sidebar.service';
 import { RouterModule } from '@angular/router';
 import { TableComponent } from './components/table/table.component';
 import { TokenService } from '../core/services/token.service';
+import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
 
-const reusables = [HeaderComponent, SidebarComponent, TableComponent]
+const reusables = [HeaderComponent, SidebarComponent, TableComponent, ProfileIconComponent]
 
 @NgModule({
   declarations: [

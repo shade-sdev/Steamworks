@@ -30,7 +30,8 @@
                                     {{tb[tableHeader.key]}}</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <button class="bg-indigo-600 px-2 mr-2 py-1 rounded-md"
-                                        [ngClass]="{'hidden': tableOptions.misc.view == false}">
+                                        [ngClass]="{'hidden': tableOptions.misc.view == false}"
+                                        (click)="emitMiscAction(tb.id)">
                                         <hero-icon [name]="tableOptions.misc.icon" class="w-4 h-4 text-white pt-1">
                                         </hero-icon>
                                     </button>

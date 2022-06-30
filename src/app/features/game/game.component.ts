@@ -18,7 +18,6 @@ export class GameComponent implements OnInit {
   public currentPage: number = 0;
   public games: GameFull[] = [];
   public roles: string[] = this.tokenService.getUserRole();
-  public showProfileMenu: boolean = false;
 
   public get linkType(): typeof LinkType {
     return LinkType;
@@ -53,15 +52,6 @@ export class GameComponent implements OnInit {
           this.games.push(game);
         })
       });
-  }
-
-  public logout() {
-    this.tokenService.signOut();
-    window.location.href = environment.discordTokenUrl;
-  }
-
-  public showProfileOptions() {
-    this.showProfileMenu = this.showProfileMenu == true ? false : true;
   }
 
 }
