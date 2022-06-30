@@ -28,13 +28,13 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getGamesByPage(this.currentPage);
+    this.getGamesByPage();
   }
 
-  public getGamesByPage(page: number) {
+  public getGamesByPage() {
     this.currentPage = this.currentPage + 1;
     const params = {
-      page: page
+      page: this.currentPage
     };
 
     this.gameService.getGamesFullBypage(params).pipe(
