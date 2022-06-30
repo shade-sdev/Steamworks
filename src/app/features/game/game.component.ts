@@ -15,7 +15,7 @@ export class GameComponent implements OnInit {
 
   constructor(private gameService: GameService, private toast: HotToastService, public tokenService: TokenService) { }
 
-  public currentPage: number = 0;
+  public currentPage: number = -1;
   public games: GameFull[] = [];
   public roles: string[] = this.tokenService.getUserRole();
 
@@ -32,6 +32,7 @@ export class GameComponent implements OnInit {
   }
 
   public getGamesByPage(page: number) {
+    this.currentPage = this.currentPage + 1;
     const params = {
       page: page
     };
