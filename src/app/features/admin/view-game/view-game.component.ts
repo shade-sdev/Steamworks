@@ -92,7 +92,7 @@ export class ViewGameComponent implements OnInit {
       this.toast.observe(
         {
           loading: 'Deleting game...',
-          success: 'Game deletd',
+          success: 'Game deleted',
           error: 'Deleting game failed',
 
         }

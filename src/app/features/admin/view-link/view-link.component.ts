@@ -78,4 +78,32 @@ export class ViewLinkComponent implements OnInit {
       this.gameId = route['id'];
     })
   }
+
+  public addlink() {
+    this.router.navigate([`/admin/create-link/${this.gameId}`])
+  }
+
+  public updateLink(id: typeof uuid) {
+    this.router.navigate([`/admin/update-link/${this.gameId}/${id}`])
+  }
+
+  public deleteLink(id: typeof uuid) {
+    this.linkService.deleteLinkById(id).pipe(
+      this.toast.observe(
+        {
+          loading: 'Deleting link...',
+          success: 'Link deleted',
+          error: 'Deleting link failed',
+
+        }
+      )
+    ).subscribe({
+      complete: () => {
+        this.links = this.links.filter(link => {
+          return link.id !== id;
+        });
+      }
+    })
+  }
+
 }

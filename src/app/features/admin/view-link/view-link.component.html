@@ -3,7 +3,8 @@
 </div>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mt-6">
 
-    <app-table [tableHeaders]="linkHeader" [tableBody]="links" [tableOptions]="tableOptions" addButtonLabel="Add Link">
+    <app-table [tableHeaders]="linkHeader" [tableBody]="links" [tableOptions]="tableOptions" addButtonLabel="Add Link"
+        (addAction)="addlink()" (updateAction)="updateLink($event)" (deleteAction)="deleteLink($event)">
     </app-table>
 
 </div>

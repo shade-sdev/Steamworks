@@ -1,4 +1,4 @@
-import { Genre } from "./enum-front";
+import { Genre, LinkType } from "./enum-front";
 import { v4 as uuid } from 'uuid';
 
 export class Game {
@@ -11,6 +11,13 @@ export class Game {
 export interface Steam {
     appid: number;
     name: string;
+}
+
+export interface LinkBack {
+    id: typeof uuid;
+    gameId: typeof uuid;
+    linkType: LinkType;
+    link: string;
 }
 
 export interface AccessToken {
