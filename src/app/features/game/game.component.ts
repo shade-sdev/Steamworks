@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { HotToastService } from '@ngneat/hot-toast';
 import { LinkType } from 'src/app/core/model/enum-front';
 import { GameFull, Page } from 'src/app/core/model/model-front';
@@ -13,7 +14,7 @@ import { environment } from 'src/environments/environment';
 })
 export class GameComponent implements OnInit {
 
-  constructor(private gameService: GameService, private toast: HotToastService, public tokenService: TokenService) { }
+  constructor(private gameService: GameService, private toast: HotToastService, public tokenService: TokenService, private domSanitizer: DomSanitizer) { }
 
   public currentPage: number = -1;
   public games: GameFull[] = [];
@@ -53,6 +54,10 @@ export class GameComponent implements OnInit {
           this.games.push(game);
         })
       });
+  }
+
+  public transform(url: string) {
+    return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
 }

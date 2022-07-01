@@ -37,7 +37,8 @@
                                 <div class="mt-2 flex flex-row">
                                     <div>
                                         <ng-container *ngFor="let link of game.links">
-                                            <a href="{{link.link}}" *ngIf="link.linkType == getKey(linkType.STORE_PAGE)"
+                                            <a href="{{link.link}}" target="_blank"
+                                                *ngIf="link.linkType == getKey(linkType.STORE_PAGE)"
                                                 class="mr-2 inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-slate-700 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                                 <svg width="12px" height="12px" viewBox="-1.5 0 259 259" version="1.1"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +51,8 @@
                                                     </g>
                                                 </svg>
                                             </a>
-                                            <a href="{{link.link}}" *ngIf="link.linkType == getKey(linkType.ONLINE_FIX)"
+                                            <a href="{{link.link}}" target="_blank"
+                                                *ngIf="link.linkType == getKey(linkType.ONLINE_FIX)"
                                                 class="mr-2 inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-slate-700 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                                 <svg width="12px" height="12px" viewBox="0 0 24 24"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +61,8 @@
                                                         fill="#fff" />
                                                 </svg>
                                             </a>
-                                            <a href="{{link.link}}" *ngIf="link.linkType == getKey(linkType.GAME)"
+                                            <a [href]="transform(link.link)" target="_blank"
+                                                *ngIf="link.linkType == getKey(linkType.GAME)"
                                                 class="mr-2 inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-slate-700 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                                 <svg width="12px" height="12px" viewBox="0 0 512 512"
                                                     xmlns="http://www.w3.org/2000/svg">
