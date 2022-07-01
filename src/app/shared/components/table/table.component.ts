@@ -18,10 +18,14 @@ export class TableComponent {
   }
   @Input() tableOptions = { misc: { icon: this.icon, view: false }, edit: true, delete: true }
   @Input() addButtonLabel!: String;
+  @Input() totalPage?: number;
+  @Input() currentPage?: number;
   @Output() updateAction: EventEmitter<any> = new EventEmitter<any>();
   @Output() deleteAction: EventEmitter<any> = new EventEmitter<any>();
   @Output() addAction: EventEmitter<any> = new EventEmitter<any>();
   @Output() miscAction: EventEmitter<any> = new EventEmitter<any>();
+  @Output() nextNavigate: EventEmitter<any> = new EventEmitter<any>();
+  @Output() previousNavigate: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
   }
@@ -40,6 +44,14 @@ export class TableComponent {
 
   public emitMiscAction(id: typeof uuid) {
     this.miscAction.emit(id);
+  }
+
+  public emitNextNavigate() {
+    this.nextNavigate.emit();
+  }
+
+  public emitPreviousNavigate() {
+    this.previousNavigate.emit();
   }
 
 }

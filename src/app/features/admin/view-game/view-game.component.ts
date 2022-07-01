@@ -18,6 +18,8 @@ export class ViewGameComponent implements OnInit {
   public gameHeader!: TableHeader[];
   public games: GameResponse[] = [];
   public icon: HeroIconName = 'link'
+  public currentPage: number = 0;
+  public maxPage?: number;
   public tableOptions = {
     misc: {
       icon: this.icon,
@@ -31,7 +33,7 @@ export class ViewGameComponent implements OnInit {
 
   ngOnInit(): void {
     this.setHeader();
-    this.getGamesByPage(0);
+    this.getGamesByPage(this.currentPage);
   }
 
   private setHeader(): void {
@@ -73,6 +75,7 @@ export class ViewGameComponent implements OnInit {
 
   private setTableBody(games: Page<Game[]>) {
     const gamesResponse: Game[] = games.content;
+    this.maxPage = games.totalPages;
     this.games = gamesResponse.map((game: Game) => {
       const gameItem = {} as GameResponse;
       gameItem.id = game.id!;
@@ -112,6 +115,20 @@ export class ViewGameComponent implements OnInit {
 
   public viewLink(id: typeof uuid) {
     this.router.navigate([`admin/view-link/${id}`]);
+  }
+
+  public nextPage() {
+    if (this.currentPage != (this.maxPage! - 1)) {
+      this.currentPage = this.currentPage + 1;
+      this.getGamesByPage(this.currentPage);
+    }
+  }
+
+  public previousPage() {
+    if (this.currentPage != 0) {
+      this.currentPage = this.currentPage - 1;
+      this.getGamesByPage(this.currentPage);
+    }
   }
 
 }

@@ -5,7 +5,10 @@
 
     <app-table [tableHeaders]="gameHeader" [tableBody]="games" [tableOptions]="tableOptions"
         (updateAction)="update($event)" (deleteAction)="delete($event)" addButtonLabel="Add Game"
-        (addAction)="addGame()" (miscAction)="viewLink($event)">
+        (addAction)="addGame()" (miscAction)="viewLink($event)" (nextNavigate)="nextPage()"
+        (previousNavigate)="previousPage()" [totalPage]="maxPage" [currentPage]="currentPage + 1">
     </app-table>
+
+
 
 </div>
