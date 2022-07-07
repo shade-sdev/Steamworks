@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HotToastService } from '@ngneat/hot-toast';
-import { LinkType } from 'src/app/core/model/enum-front';
+import { Genre, LinkType } from 'src/app/core/model/enum-front';
 import { GameFull, Page } from 'src/app/core/model/model-front';
 import { GameService } from 'src/app/core/services/game.service';
 import { TokenService } from 'src/app/core/services/token.service';
@@ -26,6 +26,10 @@ export class GameComponent implements OnInit {
 
   public getKey(value: LinkType) {
     return Object.keys(LinkType)[Object.values(LinkType).indexOf(value)]
+  }
+
+  public getGenreValue(value: string) {
+    return Object.values(Genre)[Object.keys(Genre).indexOf(value)];
   }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
 <div class="">
     <header>
-        <div class=" bg-[#101014ff]">
+        <div class=" bg-[#222429]">
             <div
                 class="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
                 <div class="flex justify-start lg:w-0 lg:flex-1">
@@ -17,7 +17,7 @@
         </div>
     </header>
 
-    <main class=" bg-[#111213ff]">
+    <main class=" bg-[#242d3b]">
         <div class="">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -27,19 +27,23 @@
                         <ng-container *ngFor="let game of games">
                             <div href="#" class="group">
                                 <div
-                                    class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-6 xl:aspect-h-9">
+                                    class="w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden xl:aspect-w-6 xl:aspect-h-9">
                                     <img src="{{game.image}}"
                                         alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
                                         class="w-full h-full object-center object-cover group-hover:opacity-75">
+
                                 </div>
-                                <h3 class="mt-4 text-sm text-gray-200">{{game.name}}
+                                <div><button
+                                        class="mt-3 inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-extrabold uppercase rounded shadow-sm text-white bg-[#1f2024]">{{getGenreValue(game.genre)}}</button>
+                                </div>
+                                <h3 class="mt-1 text-sm text-gray-200">{{game.name}}
                                 </h3>
                                 <div class="mt-2 flex flex-row">
                                     <div>
                                         <ng-container *ngFor="let link of game.links">
                                             <a href="{{link.link}}" target="_blank"
                                                 *ngIf="link.linkType == getKey(linkType.STORE_PAGE)"
-                                                class="mr-2 inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-slate-700 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                class="mr-2 inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-slate-700 hover:bg-[#222429]">
                                                 <svg width="12px" height="12px" viewBox="-1.5 0 259 259" version="1.1"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -53,7 +57,7 @@
                                             </a>
                                             <a href="{{link.link}}" target="_blank"
                                                 *ngIf="link.linkType == getKey(linkType.ONLINE_FIX)"
-                                                class="mr-2 inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-slate-700 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                class="mr-2 inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-slate-700 hover:bg-[#222429]">
                                                 <svg width="12px" height="12px" viewBox="0 0 24 24"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -63,7 +67,7 @@
                                             </a>
                                             <a [href]="transform(link.link)" target="_blank"
                                                 *ngIf="link.linkType == getKey(linkType.GAME)"
-                                                class="mr-2 inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-slate-700 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                class="mr-2 inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-slate-700 hover:bg-[#222429]">
                                                 <svg width="12px" height="12px" viewBox="0 0 512 512"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <title>ionicons-v5-o</title>
@@ -92,7 +96,7 @@
                     </div>
                     <div class="mt-14 mb-[-5rem] flex flex-row justify-center">
                         <button type="button" (click)="getGamesByPage()"
-                            class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Load
+                            class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-sm font-bold rounded shadow-sm text-white bg-[#222429] hover:bg-[#27292e] focus:ring-black">Load
                             More</button>
                     </div>
 
@@ -101,7 +105,7 @@
         </div>
     </main>
 
-    <footer class="bg-[#101014ff]" aria-labelledby="footer-heading">
+    <footer class="bg-[#222429]" aria-labelledby="footer-heading">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
         <div class="max-w-7xl mx-auto pt-16 pb-8 px-4 sm:px-6 lg:pt-2 lg:px-8">
 
