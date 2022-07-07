@@ -60,8 +60,44 @@ export class GameComponent implements OnInit {
       });
   }
 
+  private searchGameByPage(search: string) {
+    this.currentPage = -9999;
+    const params = {
+      search: search,
+      page: 0
+    }
+
+    this.gameService.searchGamesBypage(params).pipe(
+      this.toast.observe(
+        {
+          loading: 'Searching games...',
+          success: 'Games loaded',
+          error: 'Searching games failed',
+
+        }
+      )
+    )
+      .subscribe((games: Page<GameFull[]>) => {
+        const searchedGames: GameFull[] = games.content;
+        this.games = searchedGames;
+      });
+  }
+
   public transform(url: string) {
     return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
   }
+
+  search(event: KeyboardEvent, searchText: string) {
+    if (event.code == 'Enter') {
+      searchText != '' ? this.searchGameByPage(searchText) : this.resetGamePage();
+    }
+  }
+
+  private resetGamePage() {
+    this.games = [];
+    this.currentPage = -1;
+    this.getGamesByPage();
+  }
+
 
 }

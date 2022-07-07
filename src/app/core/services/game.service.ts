@@ -37,4 +37,8 @@ export class GameService {
     return this.httpClient.get<Page<GameFull[]>>(`${this.baseUrl}`, { params: param });
   }
 
+  public searchGamesBypage(param: Params): Observable<Page<GameFull[]>> {
+    return this.httpClient.get<Page<GameFull[]>>(`${this.baseUrl}/search`, { params: param });
+  }
+
 }

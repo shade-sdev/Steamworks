@@ -8,6 +8,7 @@ import { GameService } from 'src/app/core/services/game.service';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { TokenService } from 'src/app/core/services/token.service';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
