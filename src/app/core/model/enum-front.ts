@@ -24,6 +24,6 @@ export enum LinkType {
 
 
 export enum UserRole {
-    ADMIN = 'ADMIN',
-    USER = 'USER'
+    ADMIN = 'ROLE_ADMIN',
+    USER = 'ROLE_USER'
 }
