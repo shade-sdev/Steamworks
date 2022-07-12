@@ -7,13 +7,13 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./features/admin/admin.module').then(m => m.AdminModule),
     canActivate: [AuthGuardGuard],
-    data: { roles: ['ADMIN'] }
+    data: { roles: ['ROLE_ADMIN'] }
   },
   {
     path: 'game',
     loadChildren: () => import('./features/game/game.module').then(m => m.GameModule),
     canActivate: [AuthGuardGuard],
-    data: { roles: ['ADMIN', 'USER'] }
+    data: { roles: ['ROLE_ADMIN', 'ROLE_USER'] }
   },
   {
     path: '',
